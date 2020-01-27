@@ -2,20 +2,21 @@
 AUTHOR: Samuel M.H. <samuel.mh@gmail.com>
 DESCRIPTION:
   This functionality was created to ease the process of FDM 3d printing without supports.
-  The idea is to make 45º cuts or the max angle the printer supports.
+  The idea is to make 45º spiral cuts or the max angle the printer supports.
   This module can create helices with the user-definded parameters.
 */
 
 
-/*
-DESCRIPTION: this module creates a segment of the helix. It focuses on the external (lateral) face to build the piece.
-PARAMS:
+/* Create a segment of the helix. It focuses on the external (lateral) face to build the piece.
+
+Parameters
+----------
     r: radius of the helix.
     circle_inc: spin increment.
     h_inc: vertical increment.
     depth: height of the step.
 */
-module segment(r, circle_inc, h_inc, depth=0.01){
+module _segment(r, circle_inc, h_inc, depth=0.01){
     rotate([-90,0,0])
     rotate([0,-90,0])
     translate([0,0,-r])
@@ -29,9 +30,10 @@ module segment(r, circle_inc, h_inc, depth=0.01){
 }
 
 
-/*
-DESCRIPTION: main functionality, create a helix.
-PARAMS:
+/* Main functionality, create a helix.
+
+Parameters
+----------
     r: radius of the helix.
     angle_rot: how much to rotate.
     angle_inc: maximum angle the helix will contain, angle of the external border.
@@ -46,7 +48,7 @@ module helix(r, angle_rot, angle_inc=45, depth=0.01){
     for (i=[0:n_pieces]){
         rotate([0,0, i*angle_rot_inc])
         translate([0,0,i*h_inc])
-        segment(r, circle_inc, h_inc, depth);
+        _segment(r, circle_inc, h_inc, depth);
     }
     
     
