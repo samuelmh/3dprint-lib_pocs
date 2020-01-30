@@ -25,3 +25,4 @@ At this moment, I have no fancy documentation. But, I have ensured the code is f
 * [Nut & bolt](pocs/nut_n_bolt) <small>(2020-JAN-04)</small>
 * [Vertical-printed hinge](pocs/vertical_hinge) with circular support <small>(2020-JAN-09)</small>
 * [Origami paper bird](pocs/paper_bird) <small>(2020-JAN-25)</small>
+* [Lithophane of a hockey player](lithophane_maiki) <small>(2020-JAN-29)</small>
